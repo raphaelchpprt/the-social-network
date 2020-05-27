@@ -1,25 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import Cookies from "js-cookie";
+
+import { logIn } from "./redux";
+
+import Home from "./pages/Home";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import User from "./pages/User";
+
+import Header from "./components/Header";
+
+import "./App.css";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (Cookies.get("token") && Cookies.get("user"))
+      dispatch(logIn(JSON.parse(Cookies.get("user"))));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route path="/user/:username" component={User} />
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
