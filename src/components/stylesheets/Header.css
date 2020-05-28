@@ -1,8 +1,13 @@
 header {
-  padding-bottom: 1%;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+  background-color: rgb(136, 176, 221);
+  color: rgb(54, 53, 53);
 }
 
 .link-header {
   margin-left: 1%;
   margin-right: 1%;
+  font-weight: 700;
+  color: rgb(54, 53, 53) !important;
 }

@@ -31,7 +31,7 @@ const Post = (url) => {
         <div id="loader">
           <Loader
             type="Puff"
-            color="#000000"
+            color="#ffffff"
             height={50}
             width={50}
             timeout={3000}

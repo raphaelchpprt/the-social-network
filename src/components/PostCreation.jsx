@@ -42,10 +42,11 @@ const PostCreation = () => {
     <form onSubmit={handleSubmit} id="form-post-creation">
       <textarea
         name="text"
-        rows="3"
-        cols="80"
+        rows="2"
+        cols="70"
         onChange={handleChange}
         value={newPost.text}
+        placeholder="Exprimez-vous..."
       />
       <input type="submit" value="Post" className="myButton" />
     </form>
