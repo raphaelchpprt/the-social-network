@@ -18,7 +18,6 @@ const Like = ({ post }) => {
       .then((response) => response.json())
       .then((response) => {
         if (!response.error) {
-          console.log(response);
           setLiked(true);
           setLikes(likes + 1);
         }
@@ -37,7 +36,6 @@ const Like = ({ post }) => {
       .then((response) => response.json())
       .then((response) => {
         if (!response.error) {
-          console.log(response);
           setLiked(false);
           setLikes(likes - 1);
         }

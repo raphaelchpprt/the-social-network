@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Cookies from "js-cookie";
 
@@ -17,6 +22,7 @@ import "./App.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App() {
+  const loggedIn = useSelector((state) => state.login.loggedIn);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,15 +30,22 @@ function App() {
       dispatch(logIn(JSON.parse(Cookies.get("user"))));
   }, []);
 
+  const AuthRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={() =>
+        loggedIn ? <Profile /> : <Redirect to={{ pathname: "/login" }} />
+      }
+    />
+  );
+
   return (
     <Router>
       <div className="App">
         <Header />
         <Switch>
           <Route path="/user/:username" component={User} />
-          <Route path="/profile">
-            <Profile />
-          </Route>
+          <AuthRoute path="/profile" component={Profile} />
           <Route path="/register">
             <Register />
           </Route>

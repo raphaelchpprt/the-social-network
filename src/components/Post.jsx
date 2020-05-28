@@ -81,7 +81,9 @@ const Post = (url) => {
               ) : null
             )
           ) : (
-            <p>Aucun post pour le moment</p>
+            <>
+              <p style={{ textAlign: "center" }}>Aucun post pour le moment</p>
+            </>
           )}
         </>
       )}

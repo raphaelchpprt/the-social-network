@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { register } from "../redux";
 
+import { FaCheckCircle } from "react-icons/fa";
+
 const Register = () => {
   const [user, setUser] = useState({
     username: "",
@@ -33,7 +35,13 @@ const Register = () => {
       <h1>Registration Page</h1>
 
       {loggedIn ? (
-        <h2>Vous êtes connecté</h2>
+        <p>
+          <FaCheckCircle
+            style={{ color: "rgb(83, 197, 53)", fontSize: "30px" }}
+          />
+          <br />
+          Votre profil est enregistré, vous êtes désormais connecté.
+        </p>
       ) : (
         <form className="auth-form" onSubmit={handleSubmit}>
           <input

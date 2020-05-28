@@ -31,12 +31,10 @@ const User = (props) => {
             <p>{user.email}</p>
             <p>{user.description}</p>
           </div>
-          <div className="posts-container">
-            <h2>Les posts de {user.username}</h2>
-            <Post
-              url={`https://api-minireseausocial.mathis-dyk.fr/posts?user.id=${user.id}&_sort=created_at:desc`}
-            />
-          </div>
+          <h2>Les posts de {user.username}</h2>
+          <Post
+            url={`https://api-minireseausocial.mathis-dyk.fr/posts?user.id=${user.id}&_sort=created_at:desc`}
+          />
         </>
       ) : (
         <p></p>

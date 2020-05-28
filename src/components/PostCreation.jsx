@@ -47,7 +47,7 @@ const PostCreation = () => {
         onChange={handleChange}
         value={newPost.text}
       />
-      <input type="submit" value="Post" />
+      <input type="submit" value="Post" className="myButton" />
     </form>
   );
 };

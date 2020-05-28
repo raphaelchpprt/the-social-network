@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logIn } from "../redux";
 
+import { FaCheckCircle } from "react-icons/fa";
+
 const Login = () => {
   const [inputs, setInputs] = useState({
     identifier: "",
@@ -33,7 +35,13 @@ const Login = () => {
     <div className="login-container">
       <h1>LoginPage</h1>
       {loggedIn ? (
-        <p>Vous êtes connecté</p>
+        <p>
+          <FaCheckCircle
+            style={{ color: "rgb(83, 197, 53)", fontSize: "30px" }}
+          />
+          <br />
+          Vous êtes connecté{" "}
+        </p>
       ) : (
         <form className="auth-form" onSubmit={handleSubmit}>
           <input
