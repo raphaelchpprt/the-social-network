@@ -15,7 +15,9 @@ const Home = () => {
       </h4>
       {loggedIn ? <PostCreation /> : null}
       <h2>Posts feed</h2>
-      <Post url="https://api-minireseausocial.mathis-dyk.fr/posts" />
+      <Post
+        url={`https://api-minireseausocial.mathis-dyk.fr/posts?_limit=30&_sort=created_at:desc`}
+      />
     </div>
   );
 };

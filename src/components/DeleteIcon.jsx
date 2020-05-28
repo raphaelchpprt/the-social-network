@@ -6,7 +6,7 @@ import { deletePost } from "../redux";
 
 import { RiDeleteBin2Line } from "react-icons/ri";
 
-const DeletePost = ({ postId }) => {
+const DeleteIcon = ({ postId }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -34,4 +34,4 @@ const DeletePost = ({ postId }) => {
   );
 };
 
-export default DeletePost;
+export default DeleteIcon;

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Route, Switch, Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter as Route, Link } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPosts } from "../redux";
 
-import User from "../pages/User";
-import DeletePost from "./DeletePost";
+import Like from "./Like";
+import DeleteIcon from "./DeleteIcon";
 
 import "./stylesheets/Post.css";
 
@@ -30,15 +30,13 @@ const Post = (url) => {
       ) : (
         <>
           {posts.length > 0 ? (
-            posts
-              .slice(0)
-              .reverse()
-              .map((e) =>
-                e.text ? (
-                  <div className="post" key={e.id}>
-                    {e.user && e.user.id && loggedIn ? (
+            posts.map((e) =>
+              e.text ? (
+                <div className="post" key={e.id}>
+                  {loggedIn ? (
+                    e.user && e.user.id ? (
                       <>
-                        <>
+                        <b>
                           <Link
                             to={{
                               pathname: `/user/${e.user.username
@@ -47,21 +45,31 @@ const Post = (url) => {
                               state: { userId: e.user.id },
                             }}
                           >
-                            {e.user.username}
+                            {e.user.username} :
                           </Link>
-                        </>
+                        </b>
                         <Route path="/user/:username" />
                       </>
                     ) : (
-                      <>Anonymous</>
-                    )}{" "}
-                    : {e.text}{" "}
-                    {e.user && loggedIn && e.user.id == currentUser.id ? (
-                      <DeletePost postId={e.id} />
-                    ) : null}
-                  </div>
-                ) : null
-              )
+                      <b>Anonymous :</b>
+                    )
+                  ) : null}{" "}
+                  {e.text}{" "}
+                  {loggedIn ? (
+                    <>
+                      {" "}
+                      - <Like post={e} />
+                    </>
+                  ) : null}
+                  {e.user && loggedIn && e.user.id == currentUser.id ? (
+                    <>
+                      {" "}
+                      <DeleteIcon postId={e.id} />
+                    </>
+                  ) : null}
+                </div>
+              ) : null
+            )
           ) : (
             <p>Aucun post pour le moment</p>
           )}

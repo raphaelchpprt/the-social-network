@@ -34,7 +34,7 @@ const postsReducer = (state = initialState, action) => {
     case ADD_NEW_POST:
       return {
         ...state,
-        posts: [...state.posts, action.post],
+        posts: [action.post, ...state.posts],
       };
     case DELETE_POST:
       return {

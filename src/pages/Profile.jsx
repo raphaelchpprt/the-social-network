@@ -83,7 +83,7 @@ const Profile = () => {
           </form>
           <h2>Mes posts</h2>
           <Post
-            url={`https://api-minireseausocial.mathis-dyk.fr/posts?user.id=${user.id}`}
+            url={`https://api-minireseausocial.mathis-dyk.fr/posts?user.id=${user.id}&_sort=created_at:desc`}
           />
         </>
       ) : (
