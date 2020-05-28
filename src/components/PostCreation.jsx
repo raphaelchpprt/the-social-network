@@ -32,7 +32,6 @@ const PostCreation = () => {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         if (!response.error) {
           dispatch(addNewPost(response));
         }
@@ -40,7 +39,7 @@ const PostCreation = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id="form-post-creation">
       <textarea
         name="text"
         rows="3"
@@ -48,7 +47,7 @@ const PostCreation = () => {
         onChange={handleChange}
         value={newPost.text}
       />
-      <input type="submit" />
+      <input type="submit" value="Post" />
     </form>
   );
 };

@@ -1,7 +1,14 @@
 .posts-container {
-  margin-top: 2%;
+  margin-top: 5%;
+  text-align: left;
+  margin: 3% 25% 3% 25%;
 }
 
 .post {
-  margin-top: 2%;
+  margin-top: 5%;
+  line-height: 175%;
+}
+
+#loader {
+  text-align: center;
 }

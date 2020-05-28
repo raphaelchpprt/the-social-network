@@ -14,6 +14,7 @@ import User from "./pages/User";
 import Header from "./components/Header";
 
 import "./App.css";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App() {
   const dispatch = useDispatch();

@@ -7,6 +7,8 @@ import { fetchPosts } from "../redux";
 import Like from "./Like";
 import DeleteIcon from "./DeleteIcon";
 
+import Loader from "react-loader-spinner";
+
 import "./stylesheets/Post.css";
 
 const Post = (url) => {
@@ -26,7 +28,15 @@ const Post = (url) => {
   return (
     <div className="posts-container">
       {loading ? (
-        <p>...loading</p>
+        <div id="loader">
+          <Loader
+            type="Puff"
+            color="#000000"
+            height={50}
+            width={50}
+            timeout={3000}
+          />
+        </div>
       ) : (
         <>
           {posts.length > 0 ? (

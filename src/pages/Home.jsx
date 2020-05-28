@@ -14,9 +14,9 @@ const Home = () => {
         to create a small social media website.
       </h4>
       {loggedIn ? <PostCreation /> : null}
-      <h2>Posts feed</h2>
+      <h2 id="post-feed-title">Posts feed</h2>
       <Post
-        url={`https://api-minireseausocial.mathis-dyk.fr/posts?_limit=30&_sort=created_at:desc`}
+        url={`https://api-minireseausocial.mathis-dyk.fr/posts?_limit=5000&_sort=created_at:desc`}
       />
     </div>
   );
